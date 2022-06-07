@@ -1,0 +1,45 @@
+#N canvas 187 151 675 353 10;
+#X obj 170 8 cnv 15 320 20 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 13 39 cnv 15 650 300 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 19 319 tgl 15 0 empty empty empty 17 7 0 10 -258113 -4034 -1
+0 1;
+#X text 70 39 UDP;
+#X obj 99 238 osc~ 440;
+#X msg 31 82 disconnect;
+#X msg 46 127 format float;
+#X msg 67 148 format 16bit;
+#X msg 88 169 format 8bit;
+#X msg 19 60 connect localhost 8008;
+#X obj 98 260 *~;
+#X floatatom 143 192 5 0 0 0 - - -;
+#X obj 19 291 udpsend~ 2 512;
+#X obj 477 96 udpreceive~ 8008 2 512;
+#X obj 478 127 dac~ 1 2;
+#X obj 180 238 noise~;
+#X obj 179 260 *~;
+#X obj 143 212 / 100;
+#X text 44 108 Formato \, por defecto 16bit;
+#X text 177 9 Envío y recepción de vectores dsp ("audio") vía UDP;
+#X text 444 45 Recibe 2 canales en el puerto 8008;
+#X text 444 65 tamaño de bloque y debe ser igual;
+#X text 444 75 al de [updsend~].;
+#X text 444 55 El 3er. argumento corresponde al;
+#X text 109 300 bloques de 512 muestras.;
+#X text 109 290 <-- Envía 2 canales dsp usando;
+#X connect 4 0 10 0;
+#X connect 5 0 12 0;
+#X connect 6 0 12 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X connect 11 0 17 0;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 13 1 14 1;
+#X connect 15 0 16 0;
+#X connect 16 0 12 1;
+#X connect 17 0 10 1;
+#X connect 17 0 16 1;

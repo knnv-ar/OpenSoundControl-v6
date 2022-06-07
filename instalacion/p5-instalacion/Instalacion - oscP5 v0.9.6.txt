@@ -1,0 +1,6 @@
+﻿Processing libray - oscP5 v0.9.6
+********************************
+
+Instalación:
+1) Extraer del archivo .zip el contenido de la carpeta "examples" a una carpeta nueva llamada "oscP5" dentro de la carpeta "examples" en la carpeta de instalación de Processing.
+2) Extraer del archivo .zip el contenido de la carpeta "library" a una carpeta nueva llamada "oscP5\library" dentro de la carpeta "libraries" en la carpeta de instalación de Processing.

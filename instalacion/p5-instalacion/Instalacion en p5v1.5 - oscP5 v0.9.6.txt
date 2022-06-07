@@ -1,0 +1,5 @@
+﻿Processing v1.5 library - oscP5 v0.9.6
+**************************************
+
+Instalación:
+Extraer del archivo .zip la carpeta "oscP5" dentro de "c:/archivo de programa/processing-1.5/modes/java/libraries".

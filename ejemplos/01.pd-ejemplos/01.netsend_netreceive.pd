@@ -1,0 +1,55 @@
+#N canvas 235 246 675 357 10;
+#X obj 170 8 cnv 15 320 20 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 13 39 cnv 15 170 300 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 487 39 cnv 15 170 300 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 19 173 netsend;
+#X msg 19 60 connect localhost 3000;
+#X floatatom 38 121 0 0 0 0 - - -;
+#X msg 29 89 disconnect;
+#X floatatom 515 121 0 0 0 0 - - -;
+#X msg 506 89 disconnect;
+#X obj 496 173 netsend 1;
+#X msg 496 60 connect localhost 3001;
+#X text 70 39 TCP;
+#X text 561 36 UDP;
+#X obj 21 289 netreceive 3000;
+#X floatatom 121 310 0 0 0 0 - - -;
+#X obj 497 289 netreceive 3001 1;
+#X obj 21 310 print tcp;
+#X obj 497 310 print udp;
+#X text 183 59 <- Conexión a "localhost" por puerto 3000/3001 ->;
+#X text 184 90 <-------------- Cierre de conexión ------------->;
+#X text 185 147 <------- Envía mensajes a máquina remota ------->;
+#X text 183 256 segundo argumento: 0 o nada p/ TCP \, no cero p/ UDP
+;
+#X text 186 288 <-- TCP \, puerto 3000;
+#X text 179 9 Envío y recepción de mensajes Pd vía red (TCP/UDP);
+#X text 352 288 UDP \, puerto 3001 -->;
+#X text 186 311 <-- número de conexiones abiertas;
+#X obj 19 210 tgl 15 0 empty empty empty 17 7 0 10 -258113 -4034 -1
+0 1;
+#X obj 496 210 tgl 15 0 empty empty empty 17 7 0 10 -258113 -4034 -1
+0 1;
+#X msg 38 148 send \$1;
+#X msg 515 148 send \$1;
+#X text 185 172 <- Argumento de creación: 0 o nada para TCP \, ->;
+#X text 185 182 no cero para UDP ->;
+#X text 185 204 La salida es no cero si se ha establecido una;
+#X text 185 214 conexión \, de lo contrario es cero.;
+#X text 183 246 primer argumento: número de puerto = 3000;
+#X connect 3 0 26 0;
+#X connect 4 0 3 0;
+#X connect 5 0 28 0;
+#X connect 6 0 3 0;
+#X connect 7 0 29 0;
+#X connect 8 0 9 0;
+#X connect 9 0 27 0;
+#X connect 10 0 9 0;
+#X connect 13 0 16 0;
+#X connect 13 1 14 0;
+#X connect 15 0 17 0;
+#X connect 28 0 3 0;
+#X connect 29 0 9 0;

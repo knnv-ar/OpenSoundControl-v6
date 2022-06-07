@@ -1,0 +1,83 @@
+#N canvas 527 156 675 354 10;
+#X obj 165 8 cnv 15 330 20 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 13 39 cnv 15 650 300 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X msg 27 80 disconnect;
+#X obj 19 317 tgl 15 0 empty empty empty 17 7 0 10 -258113 -4034 -1
+0 1;
+#X obj 19 290 udpsend;
+#X msg 19 60 connect localhost 9997;
+#X text 70 39 UDP;
+#X obj 40 268 packOSC;
+#X msg 89 241 send /test/mute;
+#X text 170 9 Determinación del tipo de argumento en un mensaje OSC
+;
+#X obj 433 149 cnv 15 230 190 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#X obj 438 47 udpreceive 9997;
+#X obj 438 72 unpackOSC;
+#X obj 438 97 routeOSC /test;
+#X obj 472 200 mtof;
+#X obj 472 321 dac~;
+#X obj 472 224 osc~;
+#X msg 609 199 0;
+#X obj 471 297 *~;
+#X obj 609 221 dbtorms;
+#X msg 609 242 0 20;
+#X msg 568 242 \$1 20;
+#X obj 568 199 sqrt;
+#X obj 568 221 / 10;
+#X obj 609 265 line~;
+#X obj 438 156 unpack f f f;
+#X obj 472 249 mux~;
+#X obj 438 121 routeOSC /voz1 /mute;
+#X msg 54 185 sendtyped /test/voz1 Fff 60 50;
+#X obj 438 203 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 504 224 phasor~;
+#X msg 44 155 sendtyped /test/voz1 Tff 70 20;
+#X text 67 204 ^-- Luego del patrón de dirección es posible determinar
+;
+#X text 67 216 el tipo de argumento de cada uno de argumentos a enviar.
+;
+#X text 195 56 i : entero de 32bit;
+#X text 195 66 f : decimal de 32bit;
+#X text 195 76 s : cadena de texto;
+#X text 195 86 T : TRUE (sin argumento);
+#X text 195 96 F : FALSE (sin argumento);
+#X text 195 106 I : infinitum;
+#X text 195 116 N : nada (sin argumento);
+#X text 195 126 b : blob de 32bit;
+#X text 195 36 Etiqueta de tipo de argumento OSC;
+#X text 195 46 ---------------------------------;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 27 0;
+#X connect 14 0 16 0;
+#X connect 14 0 30 0;
+#X connect 16 0 26 0;
+#X connect 17 0 19 0;
+#X connect 18 0 15 0;
+#X connect 18 0 15 1;
+#X connect 19 0 20 0;
+#X connect 20 0 24 0;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 24 0 18 1;
+#X connect 25 0 26 0;
+#X connect 25 0 29 0;
+#X connect 25 1 14 0;
+#X connect 25 2 22 0;
+#X connect 26 0 18 0;
+#X connect 27 0 25 0;
+#X connect 27 1 17 0;
+#X connect 28 0 7 0;
+#X connect 30 0 26 1;
+#X connect 31 0 7 0;

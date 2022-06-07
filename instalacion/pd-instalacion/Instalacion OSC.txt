@@ -1,0 +1,11 @@
+Instalación
+***********
+
+1) Bajar la versión pd-extended v0.42.5.
+2) Utilizaremos la librería OSC de mrpeach, para llevarlo a cabo siga los siguientes puntos:
+ a. File > Path > Delete > C:/Archivos de programa/pd/extra/oscx
+ b. File > Path > New... > C:/Archivos de programa/pd/extra/mrpeach
+ c. File > Startup > Delete > C:/Archivos de programa/pd/extra/oscx
+ d. File > Startup > New... > C:/Archivos de programa/pd/extra/mrpeach
+
+
